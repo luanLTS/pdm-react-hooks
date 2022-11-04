@@ -1,23 +1,20 @@
-import { Card } from 'primereact';
 import React from 'react';
+import { Card } from 'primereact/card';
 
-export const Accordion = ({ itens }) => {
-  const expressaoJSX = itens.map((item, key) => (
-    <Card key={key} className='border-1 border-400'>
-      <div>
-        <i className='pi pi-angle-down'></i>
-        <h5 className='inline ml-3'>{item.titulo}</h5>
-      </div>
-    </Card>
-  ));
-  return (
-    <div>
-      {itens.map((item, key) => (
-        <div key={key}>
-          <h4>{item.titulo}</h4>
-          <p>{item.conteudo}</p>
+const Accordion = ({ itens }) => {
+  const expressaoJSX = itens.map((item, indice) => {
+    return (
+      <Card key={indice} className=' p-0 border-1 border-400'>
+        {/* div>i+h5 */}
+        <div>
+          <i className='pi pi-angle-down'></i>
+          <h5 className='inline ml-3'>{item.titulo}</h5>
         </div>
-      ))}
-    </div>
-  );
+        <p>{item.conteudo}</p>
+      </Card>
+    );
+  });
+  return <div>{expressaoJSX}</div>;
 };
+
+export default Accordion;
